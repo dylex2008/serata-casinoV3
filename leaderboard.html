@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classifica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell full-shell">
+      <header class="leaderboard-topbar">
+        <a class="topbar-pill" href="index.html">Home</a>
+        <div class="topbar-center">
+          <strong id="leaderboard-game-id" class="topbar-room">...</strong>
+          <strong id="leaderboard-game-state" class="topbar-state">ATTIVA</strong>
+          <span id="leaderboard-active-games" class="topbar-muted">Nessun gioco attivo</span>
+        </div>
+        <div class="topbar-actions">
+          <a class="topbar-pill" href="input.html">Giochi</a>
+          <a class="topbar-pill topbar-pill-light" href="admin.html">Admin</a>
+        </div>
+      </header>
+
+      <section class="leaderboard-mockup-layout">
+        <section class="leaderboard-mockup-main">
+          <div class="leaderboard-mockup-card">
+            <div class="leaderboard-mockup-head">
+              <h1>CLASSIFICA GENERALE</h1>
+              <div class="leaderboard-mockup-meta">
+                <span id="live-indicator">Realtime attivo</span>
+                <span id="movement-count">0 Giocatori</span>
+              </div>
+            </div>
+            <div id="leaderboard-list" class="leaderboard-mockup-list"></div>
+          </div>
+        </section>
+
+        <aside class="leaderboard-mockup-side">
+          <div id="mini-leaderboards" class="mini-mockup-grid">
+            <div class="mini-mockup-card mini-mockup-peach" data-mini-board="poker"></div>
+            <div class="mini-mockup-card mini-mockup-blue" data-mini-board="blackjack"></div>
+            <div class="mini-mockup-card mini-mockup-pink" data-mini-board="horse_racing"></div>
+            <div class="mini-mockup-card mini-mockup-gray" data-mini-board="roulette"></div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

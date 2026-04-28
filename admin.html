@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pannello Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="minimal-header">
+        <a class="button-secondary" href="leaderboard.html">Classifica</a>
+        <div class="room-inline">
+          <strong id="admin-room-code" class="room-code-inline">...</strong>
+          <strong id="admin-room-state" class="state-badge" data-state="idle">...</strong>
+        </div>
+        <a class="button-secondary" href="input.html">Giochi</a>
+      </header>
+
+      <section class="panel admin-panel">
+        <div class="entry-topbar">
+          <h1>Pannello Correzioni Admin</h1>
+        </div>
+
+        <form id="admin-adjustment-form" class="admin-form-grid">
+          <label>
+            <span>Seleziona giocatore</span>
+            <select id="admin-player-select">
+              <option value="">Seleziona giocatore</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Importo (+ / -)</span>
+            <input id="admin-adjustment-value" type="number" step="0.01" placeholder="0.00" />
+          </label>
+
+          <label class="admin-form-wide">
+            <span>Motivo opzionale</span>
+            <input id="admin-adjustment-reason" type="text" placeholder="Es. correzione manuale tavolo poker" />
+          </label>
+
+          <button id="admin-apply-button" class="button-primary" type="submit">
+            Applica modifica
+          </button>
+        </form>
+
+        <p id="admin-status" class="status-text" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

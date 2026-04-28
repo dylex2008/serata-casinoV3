@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistiche Giocatore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell stats-shell">
+      <header class="minimal-header">
+        <a class="button-secondary" href="leaderboard.html">Classifica</a>
+        <div class="room-inline">
+          <strong id="stats-room-code" class="room-code-inline">...</strong>
+          <strong id="stats-room-state" class="state-badge" data-state="idle">...</strong>
+        </div>
+          <a class="button-secondary" href="input.html">Giochi</a>
+      </header>
+
+      <section class="stats-mockup-card">
+        <h1 id="stats-player-name">NOME GIOCATORE</h1>
+        <p id="stats-global-rank" class="stats-rank-label">#RANK ATTUALE</p>
+
+        <div class="stats-rank-grid">
+          <div class="stats-rank-chip stats-rank-poker">
+            <span>POKER</span>
+            <strong id="stats-rank-poker">#00</strong>
+          </div>
+          <div class="stats-rank-chip stats-rank-bj">
+            <span>BJ</span>
+            <strong id="stats-rank-blackjack">#00</strong>
+          </div>
+          <div class="stats-rank-chip stats-rank-horse">
+            <span>CAVALLI</span>
+            <strong id="stats-rank-horse_racing">#00</strong>
+          </div>
+          <div class="stats-rank-chip stats-rank-roulette">
+            <span>RULETTE</span>
+            <strong id="stats-rank-roulette">#00</strong>
+          </div>
+        </div>
+
+        <div class="stats-money-block">
+          <h2>SOLDI TOTALI</h2>
+          <strong id="stats-total" class="stats-value">00,00$</strong>
+        </div>
+
+        <div class="stats-money-block">
+          <h2>SOLDI FERMI</h2>
+          <strong id="stats-available" class="stats-value stats-green">00,00$</strong>
+        </div>
+
+        <div class="stats-money-block">
+          <h2>SOLDI IN GIOCO</h2>
+          <strong id="stats-locked" class="stats-value stats-blue">00,00$</strong>
+        </div>
+
+        <div class="stats-money-block">
+          <h2>STATO</h2>
+          <span id="stats-status" class="stats-status-pill">FUORI GIOCO</span>
+        </div>
+
+        <div class="stats-money-block">
+          <h2>REGISTRO PARTITE</h2>
+        </div>
+
+        <div id="stats-log" class="stats-log-card"></div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
