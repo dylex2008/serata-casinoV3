@@ -309,10 +309,6 @@ export function isAdminUnlocked() {
   return sessionStorage.getItem(ADMIN_SESSION_KEY) === "1";
 }
 
-export function unlockAdminSession() {
-  sessionStorage.setItem(ADMIN_SESSION_KEY, "1");
-}
-
 /***********************
  * EXPORTS (CLEAN)
  ************************/
