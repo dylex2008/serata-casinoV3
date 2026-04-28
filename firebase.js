@@ -1,5 +1,5 @@
 // firebase.refactored.js
-// Refactored version: modular, grouped responsibilities, removed duplicate exports, cleaner structure
+// Refactored version: modular, grouped responsibilities, removed duplicate s, cleaner structure
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 import {
@@ -131,19 +131,19 @@ function hydrateRoom(room = {}) {
  * FIREBASE CORE
  ************************/
 
-export async function getCurrentRoom() {
+ async function getCurrentRoom() {
   const snap = await get(ref(ensureDatabase(), "currentRoom"));
   return snap.exists() ? snap.val() : null;
 }
 
-export async function setCurrentRoom(code) {
+ async function setCurrentRoom(code) {
   const normalized = normalizeRoomCode(code);
   await set(ref(ensureDatabase(), "currentRoom"), normalized);
   setStoredRoom(normalized);
   return normalized;
 }
 
-export async function getRoom(code) {
+ async function getRoom(code) {
   const normalized = normalizeRoomCode(code);
   if (!normalized) return null;
 
@@ -151,7 +151,7 @@ export async function getRoom(code) {
   return snap.exists() ? hydrateRoom(snap.val()) : null;
 }
 
-export async function createRoom(players = []) {
+ async function createRoom(players = []) {
   const db = ensureDatabase();
   const list = normalizePlayersList(players);
 
@@ -177,7 +177,7 @@ export async function createRoom(players = []) {
   return code;
 }
 
-export async function joinRoom(code) {
+ async function joinRoom(code) {
   const room = await getRoom(code);
   if (!room) throw new Error("Stanza non trovata");
 
@@ -185,7 +185,7 @@ export async function joinRoom(code) {
   return { roomCode: code, room };
 }
 
-export async function endRoom(code) {
+ async function endRoom(code) {
   const normalized = normalizeRoomCode(code);
   await update(ref(ensureDatabase(), `rooms/${normalized}`), {
     status: "ended",
@@ -205,7 +205,7 @@ function parsePositive(n) {
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 
-export async function startGame(roomCode, gameKey, entries, rate = DEFAULT_CHIPS_PER_EURO) {
+ async function startGame(roomCode, gameKey, entries, rate = DEFAULT_CHIPS_PER_EURO) {
   assertGame(gameKey);
   const room = await getRoom(roomCode);
   if (!room) throw new Error("Stanza inesistente");
@@ -239,7 +239,7 @@ export async function startGame(roomCode, gameKey, entries, rate = DEFAULT_CHIPS
   await update(ref(ensureDatabase()), updates);
 }
 
-export async function updateGameChips(roomCode, gameKey, updatesArr) {
+ async function updateGameChips(roomCode, gameKey, updatesArr) {
   const updates = {};
 
   for (const u of updatesArr) {
@@ -259,7 +259,7 @@ export async function updateGameChips(roomCode, gameKey, updatesArr) {
   await update(ref(ensureDatabase()), updates);
 }
 
-export async function endSubGame(roomCode, gameKey, results) {
+ async function endSubGame(roomCode, gameKey, results) {
   const room = await getRoom(roomCode);
   if (!room) throw new Error("Stanza non trovata");
 
@@ -289,13 +289,13 @@ export async function endSubGame(roomCode, gameKey, results) {
  * SUBSCRIPTIONS
  ************************/
 
-export function listenRoom(code, cb) {
+ function listenRoom(code, cb) {
   return onValue(ref(ensureDatabase(), `rooms/${code}`), (snap) =>
     cb(snap.exists() ? hydrateRoom(snap.val()) : null)
   );
 }
 
-export function subscribeToCurrentRoom(cb) {
+ function subscribeToCurrentRoom(cb) {
   return onValue(ref(ensureDatabase(), "currentRoom"), (snap) =>
     cb(snap.exists() ? snap.val() : null)
   );
@@ -305,12 +305,16 @@ export function subscribeToCurrentRoom(cb) {
  * ADMIN
  ************************/
 
-export function isAdminUnlocked() {
+ function isAdminUnlocked() {
   return sessionStorage.getItem(ADMIN_SESSION_KEY) === "1";
 }
 
+ function unlockAdminSession() {
+  sessionStorage.setItem(ADMIN_SESSION_KEY, "1");
+}
+
 /***********************
- * EXPORTS (CLEAN)
+ * S (CLEAN)
  ************************/
 
 export {
