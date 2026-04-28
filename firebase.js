@@ -664,5 +664,4 @@ export {
   getCurrentRoom,
   setCurrentRoom,
   endRoom,
-  resetRoom,
-};
+  };
