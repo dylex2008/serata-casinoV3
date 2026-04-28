@@ -123,39 +123,59 @@ function initHomePage() {
 
   createForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
+    event.stopPropagation();
     const button = createForm.querySelector('button[type="submit"]');
     const players = normalizePlayersList(
       String(createForm.querySelector("#players-list")?.value || "").split(",")
     );
+
+    if (!players.length) {
+      setStatus(createStatus, "Inserisci almeno un giocatore", true);
+      return false;
+    }
 
     button.disabled = true;
     try {
       const roomCode = await createRoom(players);
       createdRoomNode.textContent = roomCode;
       setStatus(createStatus, `Partita creata: ${roomCode}`, false);
-      window.location.href = "input.html";
+      setTimeout(() => {
+        window.location.href = "input.html";
+      }, 500);
     } catch (error) {
       setStatus(createStatus, error.message, true);
+      console.error("Create room error:", error);
     } finally {
       button.disabled = false;
     }
+    return false;
   });
 
   joinForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
+    event.stopPropagation();
     const button = joinForm.querySelector('button[type="submit"]');
     const roomCode = normalizeRoomCode(joinForm.querySelector("#room-code-input")?.value || "");
+
+    if (!roomCode) {
+      setStatus(joinStatus, "Inserisci un codice stanza", true);
+      return false;
+    }
 
     button.disabled = true;
     try {
       await joinRoom(roomCode);
       setStatus(joinStatus, `Ingresso effettuato nella stanza ${roomCode}`, false);
-      window.location.href = "input.html";
+      setTimeout(() => {
+        window.location.href = "input.html";
+      }, 500);
     } catch (error) {
       setStatus(joinStatus, error.message, true);
+      console.error("Join room error:", error);
     } finally {
       button.disabled = false;
     }
+    return false;
   });
 }
 
