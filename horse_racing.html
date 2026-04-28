@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horse Racing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-game-page="horse_racing">
+    <main class="shell shell-wide">
+      <header class="minimal-header">
+        <a class="button-secondary" href="input.html">Games</a>
+        <div class="room-inline">
+          <strong id="game-room-code" class="room-code-inline">...</strong>
+          <strong id="game-room-state" class="state-badge" data-state="idle">...</strong>
+        </div>
+        <a class="button-secondary" href="leaderboard.html">Rankings</a>
+      </header>
+
+      <section class="panel entry-panel">
+        <div class="entry-topbar">
+          <h1>Horse Racing</h1>
+          <div class="entry-actions">
+            <button id="start-subgame" class="button-primary" type="button">Start Game</button>
+            <button id="calculate-results" class="button-secondary" type="button">
+              Calculate Results
+            </button>
+            <button id="finish-subgame" class="button-primary" type="button">End Game</button>
+          </div>
+        </div>
+
+        <div class="entry-summary">
+          <div class="summary-box"><span>Players</span><strong id="game-selected-players">0</strong></div>
+          <div class="summary-box"><span>Locked</span><strong id="game-selected-locked">€0,00</strong></div>
+          <div class="summary-box"><span>Rate</span><strong id="game-selected-rate">Direct</strong></div>
+          <div class="summary-box"><span>Status</span><strong id="game-selected-status">Ready</strong></div>
+        </div>
+
+        <div id="game-form" class="player-cards-grid"></div>
+        <p id="game-status-text" class="status-text" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

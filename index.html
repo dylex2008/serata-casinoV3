@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serata Casino'</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell full-shell home-shell">
+      <div class="dot-corner dot-corner-top" aria-hidden="true"></div>
+      <div class="dot-corner dot-corner-bottom" aria-hidden="true"></div>
+
+      <section class="home-hero">
+        <div class="home-copy">
+          <h1 class="hero-title">SERATA CASINO' SETCOM#2</h1>
+          <p class="hero-subtitle">
+            Crea una partita con la tua lista giocatori oppure entra in una room
+            esistente e segui la classifica live sincronizzata in tempo reale.
+          </p>
+        </div>
+
+        <div class="hero-buttons">
+          <button class="hero-button hero-button-peach" type="button" data-home-panel="create">
+            Crea partita
+          </button>
+          <button class="hero-button hero-button-blue" type="button" data-home-panel="join">
+            Entra con codice
+          </button>
+        </div>
+
+        <div class="hero-forms">
+          <form id="create-room-form" class="hero-form-card" data-panel="create">
+            <textarea
+              id="players-list"
+              rows="3"
+              placeholder="Marco, Giulia, Luca, Sara"
+            ></textarea>
+            <button class="button-primary button-peach" type="submit">Crea partita</button>
+            <p id="create-room-status" class="status-text" aria-live="polite"></p>
+            <p class="room-preview">Codice stanza <strong id="created-room-code">-</strong></p>
+          </form>
+
+          <form id="join-room-form" class="hero-form-card" data-panel="join">
+            <input id="room-code-input" type="text" maxlength="8" placeholder="INSERISCI CODICE" />
+            <button class="button-primary button-blue" type="submit">Entra</button>
+            <p id="join-room-status" class="status-text" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

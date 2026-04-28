@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rankings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell shell-wide">
+      <header class="minimal-header">
+        <a class="button-secondary" href="index.html">Home</a>
+        <div class="room-inline rankings-inline">
+          <strong id="leaderboard-game-id" class="room-code-inline">...</strong>
+          <strong id="leaderboard-game-state" class="state-badge" data-state="idle">...</strong>
+          <span id="leaderboard-active-games" class="inline-muted">...</span>
+        </div>
+        <a class="button-secondary" href="input.html">Games</a>
+      </header>
+
+      <section class="rankings-layout">
+        <section class="panel ranking-main">
+          <div class="ranking-title-row">
+            <h1>General Ranking</h1>
+            <div class="ranking-meta">
+              <span id="live-indicator" class="inline-muted">...</span>
+              <span id="movement-count" class="inline-muted">0 Players</span>
+            </div>
+          </div>
+          <div id="leaderboard-list" class="leaderboard-list"></div>
+        </section>
+
+        <aside class="ranking-side">
+          <div id="mini-leaderboards" class="mini-boards grid-four">
+            <div class="mini-board" data-mini-board="poker"></div>
+            <div class="mini-board" data-mini-board="blackjack"></div>
+            <div class="mini-board" data-mini-board="roulette"></div>
+            <div class="mini-board" data-mini-board="horse_racing"></div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
